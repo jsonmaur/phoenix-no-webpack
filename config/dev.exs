@@ -6,12 +6,17 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
+{cmds, _} = Code.eval_file("config/cmds.exs")
+
 config :foobar, FoobarWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: []
+  watchers: [
+    {cmds.zombie, cmds.sass ++ ["--watch"]},
+    {cmds.zombie, cmds.esbuild ++ ["--watch"]}
+  ]
 
 # ## SSL Support
 #

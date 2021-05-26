@@ -22,7 +22,7 @@ defmodule FoobarWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :foobar,
+    from: if(Mix.env() == :prod, do: {:foobar, "priv/dist"}, else: :foobar),
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 

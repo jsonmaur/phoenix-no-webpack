@@ -53,7 +53,8 @@ defmodule Foobar.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get"]
+      setup: ["deps.get"],
+      "phx.digest": ["assets", "phx.digest -o priv/dist"]
     ]
   end
 end

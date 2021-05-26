@@ -1,0 +1,18 @@
+/* This file is for your main application css. */
+@import "./phoenix";
+
+$theme: lightblue;
+
+body {
+  background: $theme;
+}
+
+header {
+	background: $theme;
+	border: none;
+}
+
+.phx-hero {
+	background: darken($theme, 10%);
+	border-color: darken($theme, 15%);
+}
